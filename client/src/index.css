@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: 249 115 22; /* #F97316 Vibrant Orange */
+    --primary-hover: 234 88 12; /* #EA580C */
+    --primary-light: 255 247 237; /* #FFF7ED Soft peach/orange */
+    --navy: 15 23 42; /* #0F172A Deep Navy */
+    --slate: 51 65 85; /* #334155 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.font-script {
+  font-family: 'Caveat', 'Dancing Script', cursive;
+}
+
+/* Custom glowing effects */
+.glow-orange {
+  box-shadow: 0 0 50px -10px rgba(249, 115, 22, 0.35);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.25);
+}
+
+.glow-card {
+  box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-orange {
+  background: rgba(255, 247, 237, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(253, 186, 116, 0.3);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fb923c;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "shahinur-akter-portfolio",
+  "version": "1.0.0",
+  "description": "Production-ready 3D animated portfolio website for Shahinur Akter with React, Node.js, Express, and MongoDB",
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "npm --prefix server run build",
+    "build:client": "npm --prefix client run build",
+    "vercel-build": "npm run build",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.1.10",
+    "concurrently": "^9.2.5",
+    "sharp": "^0.35.5"
+  }
+}
