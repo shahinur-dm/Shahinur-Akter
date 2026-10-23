@@ -99,3 +99,44 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #fb923c;
 }
+
+/* Seamless Continuous Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-left-fast {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 24s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-left-fast:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-left-fast {
+    animation: none !important;
+    overflow-x: auto;
+  }
+}
+
