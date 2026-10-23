@@ -50,22 +50,22 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-orange-100/50 py-3'
-          : 'bg-white/60 backdrop-blur-xs py-5'
+          ? 'bg-[#070605]/90 backdrop-blur-xl shadow-2xl shadow-black/80 border-b border-orange-500/20 py-3'
+          : 'bg-[#070605]/50 backdrop-blur-md border-b border-orange-500/10 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 to-orange-400 flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-orange-500/20 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-orange-500/30 ring-1 ring-white/20 group-hover:scale-105 transition-transform">
               SA
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-slate-900 text-lg leading-tight group-hover:text-orange-600 transition-colors">
+              <span className="font-extrabold text-white text-lg leading-tight group-hover:text-orange-400 transition-colors tracking-tight">
                 {settings?.ownerName || 'Shahinur Akter'}
               </span>
-              <span className="text-[11px] font-medium text-slate-500 tracking-tight hidden sm:inline">
+              <span className="text-[11px] font-medium text-zinc-400 tracking-tight hidden sm:inline">
                 Frontend Developer | Graphic Designer | Digital Marketer
               </span>
             </div>
@@ -79,15 +79,15 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all relative ${
+                  className={`px-3.5 py-1.5 rounded-full text-sm font-semibold transition-all relative ${
                     isActive
-                      ? 'text-orange-600 font-bold'
-                      : 'text-slate-600 hover:text-orange-500 hover:bg-orange-50/60'
+                      ? 'text-orange-400 font-bold bg-orange-500/10'
+                      : 'text-zinc-300 hover:text-white hover:bg-white/[0.06]'
                   }`}
                 >
                   {link.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-orange-500 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-orange-500 to-amber-400 rounded-full shadow-[0_0_8px_#ff5a00]" />
                   )}
                 </a>
               );
@@ -98,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 hover:-translate-y-0.5 transition-all duration-200"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:-translate-y-0.5 ring-1 ring-orange-400/30 transition-all duration-200"
             >
               <span>Hire Me</span>
               <ArrowRight className="w-4 h-4" />
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+              className="md:hidden p-2 text-zinc-300 hover:text-white hover:bg-white/[0.08] rounded-lg transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-lg border-b border-orange-100 shadow-xl px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-[#0c0907]/98 backdrop-blur-2xl border-b border-orange-500/20 shadow-2xl px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 duration-200">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -126,8 +126,8 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
               onClick={() => setMobileMenuOpen(false)}
               className={`block px-4 py-2.5 rounded-xl text-base font-semibold transition-colors ${
                 activeSection === link.name.toLowerCase()
-                  ? 'bg-orange-500 text-white shadow-sm'
-                  : 'text-slate-700 hover:bg-orange-50 hover:text-orange-600'
+                  ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-md shadow-orange-500/30'
+                  : 'text-zinc-300 hover:bg-white/[0.06] hover:text-white'
               }`}
             >
               {link.name}
@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({ settings }) => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center flex items-center justify-center gap-2 bg-orange-500 text-white font-bold py-3 rounded-xl shadow-md shadow-orange-500/25"
+              className="w-full text-center flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-orange-500/30"
             >
               <span>Hire Me →</span>
             </a>
